@@ -5,14 +5,13 @@ public class Chaudron {
 	private int forcePotionBase;
 	public Chaudron(int quantitePotion, int forcePotion) {
 		this.quantitePotion = quantitePotion;
-		this.forcePotionBase = forcePotionBase;
 	}
+	
+	
 	
 	public int getForcePotionBase() {
 		return forcePotionBase;
 	}
-
-
 
 	public void remplirChaudron(int quantite,int forcePotion) {
 		quantitePotion = quantite;

@@ -6,12 +6,16 @@ import personnages.Romain;
 
 public class TestGaulois {
 	public static void main(String[] args) {
+		//personnages et objets
 		Gaulois asterix = new Gaulois("Astérix",8);
 		Gaulois obelix = new Gaulois("Obélix",16);
 		Romain minus = new Romain("Minus",6);
 		Romain brutus = new Romain("Brutus",14);
 		Druide panoramix = new Druide("Panoramix",2);
 		
+		
+		
+		//scénario
 		asterix.parler("Bonjour " + obelix.getNom());
 		obelix.parler("Bonjour " + asterix.getNom() + ". Ca te dirais d'aller chasser du sanglier ?");
 		asterix.parler("Oui très bonne idée");

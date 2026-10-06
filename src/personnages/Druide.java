@@ -5,10 +5,10 @@ import Objet.Chaudron;
 public class Druide {
 	private String nom;
 	private int force;
-	
-	
 	Chaudron chaudron=new Chaudron(0,0);
 	
+	
+	//paroles + identité
 	public Druide(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
@@ -21,6 +21,9 @@ public class Druide {
 		return "Le Druide " + nom + " : ";
 	}
 	
+	
+	
+	//actions
 	public void fabriquerPotion(int quantite,int forcePotion) {
 		chaudron.remplirChaudron(quantite,forcePotion);
 		parler("J'ai concocté " + quantite + " doses de potion magique. Elle a une force de "+ forcePotion + ".");

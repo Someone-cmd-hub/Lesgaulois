@@ -6,6 +6,7 @@ public class Gaulois {
 	private String nom;
 	private int force;
 	private int effetPotion=1;
+	private Village villageg;
 	
 	//methodes identité gaulois
 	public Gaulois(String nom, int force) {
@@ -15,8 +16,9 @@ public class Gaulois {
 	public String getNom() {
 		return nom;
 	}
-	
-	
+	public void setVillage(Village villageg) {
+		this.villageg=villageg;
+	}
 	
 	//methodes parole
 	public void parler(String texte) {
@@ -45,8 +47,23 @@ public class Gaulois {
 		effetPotion=forcePotion;
 	}
 	
-	
-	
+	public void sePresenter() {
+		System.out.println("Le gaulois ");
+		if (villageg.getNom() != null) {
+			Gaulois tempchef = villageg.getChef();
+			if (nom != tempchef.getNom()) {
+				System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . J'habite le village :"
+	+ villageg.getNom() + "\"");
+			}
+			else {
+				System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . Je suis le chef du village :"
+						+ villageg.getNom() + "\"");
+			}
+		}
+		else {
+			System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . Je voyage de village en village\"");
+		}
+	}
 	
 	//main
 	public static void main(String[] args) {

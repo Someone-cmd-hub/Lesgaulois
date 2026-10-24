@@ -13,6 +13,7 @@ public class Village {
 		this.nomV = nomV;
 		this.nbVillageois = nbVillageois;
 		this.chef= chef;
+		chef.setVillage(this);
 		this.villageois= new Gaulois[nbVillageois];
 
 	}
@@ -29,7 +30,7 @@ public class Village {
 	private int cmpt=0;
 	
 	public Gaulois trouverVillageois(int numVillageois) {
-		if (numVillageois <0 || numVillageois>cmpt) {
+		if (numVillageois < 1 || numVillageois>cmpt) {
 			System.out.println("Il n'a pas autant de villageois !");
 			return null;
 		}
@@ -43,7 +44,7 @@ public class Village {
 		}
 		else {
 			villageois[cmpt]=gaulois;
-			gaulois.setVillage(nomV);
+			gaulois.setVillage(this);
 			cmpt++;
 		}
 	}
@@ -52,7 +53,7 @@ public class Village {
 " vivent les légendaires gaulois ;") ;
 		for (Gaulois gau : villageois) {
 				if (gau!=null) {
-					System.out.println("- " + gau.getNom() + "\n");
+					System.out.print("- " + gau.getNom() + "\n");
 				}
 		}
 	}
@@ -70,5 +71,12 @@ public class Village {
 		gaulois=virred.trouverVillageois(2);
 		System.out.println(gaulois);
 		virred.afficherVillage();
+		Gaulois obelix = new Gaulois("Obélix",25);
+		virred.ajouterVillageois(obelix);
+		virred.afficherVillage();
+		Gaulois doublepolemix = new Gaulois("Doublepolémix",4);
+		doublepolemix.sePresenter();
+		asterix.sePresenter();
+		abraracourcix.sePresenter();
 	}
 }

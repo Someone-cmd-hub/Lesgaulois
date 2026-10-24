@@ -48,20 +48,18 @@ public class Gaulois {
 	}
 	
 	public void sePresenter() {
-		System.out.println("Le gaulois ");
-		if (villageg.getNom() != null) {
-			Gaulois tempchef = villageg.getChef();
-			if (nom != tempchef.getNom()) {
-				System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . J'habite le village :"
-	+ villageg.getNom() + "\"");
+		System.out.print("Le gaulois ");
+		if (villageg!= null && villageg.getChef().getNom()!=nom) {
+			System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . J'habite le village :"
++ villageg.getNom() + "\"");
 			}
-			else {
-				System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . Je suis le chef du village :"
-						+ villageg.getNom() + "\"");
-			}
+		else if(villageg!=null && villageg.getChef().getNom()==nom){
+			System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . Je suis le chef du village :"
+					+ villageg.getNom() + "\"");
 		}
 		else {
 			System.out.println(nom + ": \"Bonjour, je m'appelle " + nom + " . Je voyage de village en village\"");
+
 		}
 	}
 	

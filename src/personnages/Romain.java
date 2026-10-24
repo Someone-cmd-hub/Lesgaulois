@@ -29,6 +29,8 @@ public class Romain {
 	
 	//actions
 	void recevoirCoup(int forceCoup) {
+		assert forceCoup>=0 : "La force doit être positive";
+		int temp=forceCoup;
 		force = force - forceCoup;
 		if (force<1) {
 			Parler("J'abandonne");
@@ -36,5 +38,22 @@ public class Romain {
 		else {
 			Parler("Aïe");
 		}
+		assert temp>forceCoup : "La force du romain doit diminué";
 	}
+
+
+//main
+
+public static void main(String[] args) {
+	Romain minus = new Romain("Minus",6);
+	assert minus.isInvariantVerified();
+	System.out.println(minus);
+}
+
+//invariants
+
+private boolean isInvariantVerified() {
+	return force>=0;
+}
+
 }

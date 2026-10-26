@@ -1,11 +1,15 @@
 package personnages;
 
+import Objet.Equipement;
+
 public class Romain {
+	//attributs
 	private String nom;
 	private int force;
+	private Equipement[] equipement=new Equipement[2];
+	private int nbEquipement=0;
 	
-	
-	//identité + parole
+	//constructeur
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
@@ -27,8 +31,9 @@ public class Romain {
 	
 	
 	
-	//actions
-	void recevoirCoup(int forceCoup) {
+	//methods
+	
+	public void recevoirCoup(int forceCoup) {
 		assert forceCoup>=0 : "La force doit être positive";
 		int temp=forceCoup;
 		force = force - forceCoup;
@@ -40,17 +45,48 @@ public class Romain {
 		}
 		assert temp>forceCoup : "La force du romain doit diminué";
 	}
-
-
+	
+	public void sequiper(Equipement e) {
+		switch(nbEquipement) {
+		case 2:
+			System.out.println("Le soldat " + nom + " est déjà bien protégé");
+			break;
+		case 1:
+			if(e == equipement[0]) {
+				System.out.println("Le soldat " + nom + " possède déjà un " + e.toString() + ".");
+			}
+			else {
+				System.out.println("Le soldat " + nom + " s'équipe d'un " + e.toString() + ".");
+				equipement[1]=e;
+				nbEquipement++;
+			}
+			break;
+		case 0:
+			System.out.println("Le soldat " + nom + " s'équipe d'un " + e.toString() + ".");
+			equipement[0]=e;
+			nbEquipement++;
+			break;
+		default:
+			System.out.println("Nombre d'équipement non-valide");
+		}
+	}
+	
 //main
 
 public static void main(String[] args) {
 	Romain minus = new Romain("Minus",6);
 	assert minus.isInvariantVerified();
 	System.out.println(minus);
+	for (Equipement e : Equipement.values()) {
+		System.out.println(e + " ");
+	}
+	minus.sequiper(Equipement.CASQUE);
+	minus.sequiper(Equipement.CASQUE);
+	minus.sequiper(Equipement.BOUCLIER);
+	minus.sequiper(Equipement.CASQUE);
 }
-
-//invariants
+	
+	//invariants
 
 private boolean isInvariantVerified() {
 	return force>=0;

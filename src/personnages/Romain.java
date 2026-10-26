@@ -34,7 +34,10 @@ public class Romain {
 	//methods
 	
 	public void recevoirCoup(int forceCoup) {
-		assert forceCoup>=0 : "La force doit être positive";
+		//assert forceCoup>=0 : "La force doit être positive"; -> pas du clean code (car nécessite les bons parametres)
+		if (forceCoup>=0) {
+			throw new IllegalArgumentException("La force doit être positive");
+		}
 		int temp=forceCoup;
 		force = force - forceCoup;
 		if (force<1) {
@@ -43,7 +46,10 @@ public class Romain {
 		else {
 			Parler("Aïe");
 		}
-		assert temp>forceCoup : "La force du romain doit diminué";
+		//assert temp>forceCoup : "La force du romain doit diminué";
+		if (temp>forceCoup) {
+			throw new IllegalArgumentException("La force du romain doit diminiuer");
+		}
 	}
 	
 	public void sequiper(Equipement e) {
